@@ -1,0 +1,22 @@
+
+CXXFLAGS=-O3 -fexpensive-optimizations -ffast-math -funroll-loops -fomit-frame-pointer 
+
+all: rtgen rtdump rtsort rcrack rtest
+
+rtgen:
+	g++ $(CXXFLAGS) Public.cpp ChainWalkContext.cpp HashAlgorithm.cpp HashRoutine.cpp RainbowTableGenerate.cpp -lssl -o rtgen
+
+rtdump:
+	g++ $(CXXFLAGS) Public.cpp ChainWalkContext.cpp HashAlgorithm.cpp HashRoutine.cpp RainbowTableDump.cpp -lssl -o rtdump
+
+rtsort:
+	g++ $(CXXFLAGS) Public.cpp RainbowTableSort.cpp -o rtsort
+
+rcrack:
+	g++ $(CXXFLAGS) Public.cpp ChainWalkContext.cpp HashAlgorithm.cpp HashRoutine.cpp HashSet.cpp MemoryPool.cpp ChainWalkSet.cpp CrackEngine.cpp RainbowCrack.cpp -lssl -o rcrack
+
+rtest:
+	g++ $(CXXFLAGS) HashAlgorithm.cpp rtest.cpp -lssl -o rtest
+   
+clean:
+	@rm -f rtgen rtdump rtsort rcrack rtest
