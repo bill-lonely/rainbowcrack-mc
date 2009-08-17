@@ -16,7 +16,7 @@ rcrack:
 	g++ $(CXXFLAGS) Public.cpp ChainWalkContext.cpp HashAlgorithm.cpp HashRoutine.cpp HashSet.cpp MemoryPool.cpp ChainWalkSet.cpp CrackEngine.cpp RainbowCrack.cpp "/opt/local/lib/libssl.dylib" -L "/opt/local/lib/libcrypto.dylib" -o rcrack
 
 rtest:
-	g++ $(CXXFLAGS) PHashAlgorithm.cpp rtest.cpp -lssl -o rtest
+	g++ $(CXXFLAGS) HashAlgorithm.cpp rtest.cpp "/opt/local/lib/libssl.dylib" -L "/opt/local/lib/libcrypto.dylib" -o rtest
 
 clean:
 	@rm -f rtgen rtdump rtsort rcrack rtest
