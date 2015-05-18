@@ -1,0 +1,1 @@
+A branch of rainbowcrack-1.2 with some patches and fixes. Adding support for Mac OS X, PowerPC etc.
